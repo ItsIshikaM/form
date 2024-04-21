@@ -1,0 +1,264 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="form.css">
+        <script src="https://kit.fontawesome.com/39d057e527.js" crossorigin="anonymous"></script>
+        <script src="cities.js"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images4/nexus.png">
+            </div>
+        <div class="wrap">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="#">Scholarship</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i></a></li>
+                <li><a href="#"><i class="fas fa-bars"></i></a></li>
+                <li class="search-icon"><a href="#"><i class="fas fa-search"></i></a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+    </nav>
+    <!-- Your HTML content -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Please fill out all required fields.</p>
+    </div>
+  </div>
+  
+    <div class="box">
+        <div class="Heading"><h2>Student Enrollment Form</h2></div>
+            <form onsubmit="return validateForm()">
+                <label for="name">Student Name</label>
+                <div class="student-name">
+                <label for="first"
+                    ></label
+                >
+                <input
+                type="text"
+                id="first"
+                name="first"
+                placeholder="First Name"
+            />
+            <label for="middle"
+            ></label
+        >
+        <input
+        type="text"
+        id="middle"
+        name="middle"
+        placeholder="Middle Name"
+        
+    />
+                <label for="last"
+                    ></label
+                >
+                <input
+                    type="text"
+                    id="last"
+                    name="last"
+                    placeholder="Last Name"
+                />
+            </div>
+            <div class="info">
+                <div class="dob">
+            <label for="dob">Date-Of-Birth</label>
+                <input type="date" id="dob">
+                </div>
+                <div class="gender">
+                <label for="gender"
+                    >Gender:</label
+                >
+                <select
+                    id="gender"
+                    name="gender"
+                >
+                    <option value="male">
+                        Male
+                    </option>
+                    <option value="female">
+                        Female
+                    </option>
+                    <option value="other">
+                        Other
+                    </option>
+                </select>
+                </div>
+            </div>
+            <label for="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@example.com" >
+                <label for="mobile">Contact:</label
+                >
+                <input
+                    type="text"
+                    id="mobile"
+                    name="mobile"
+                    maxlength="10"
+                />
+                <label for="state-city">State and City</label>
+                <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" ></select>
+<select id ="state" class="form-control"></select>
+<script language="javascript">print_state("sts");</script>
+                <label for="course">Course:</label
+                >
+                <select
+                    id="course"
+                    name="course"
+                >
+                <option value="" disabled selected hidden>Please Select</option>
+                    <option value="BA">
+                        Business Administration
+                    </option>
+                    <option value="Computer-Science">
+                        Computer Science
+                    </option>
+                    <option value="Economics">
+                        Economics
+                    </option>
+                    <option value="Psychology
+                    ">
+                    Psychology
+                    </option>
+                    <option value="Engineering (Mechanical, Electrical, Civil, etc.)">
+                        Engineering (Mechanical, Electrical, Civil, etc.)
+                    </option>
+                    <option value="Medicine">
+                        Medicine
+                    </option>
+                    <option value="Law">
+                        Law
+                    </option>
+                    <option value="Literature">
+                        Literature
+                    </option>
+                    <option value="Philosophy">
+                        Philosophy
+                    </option>
+                    <option value="Nursing
+                    ">
+                    Nursing
+                    </option>
+                    <option value="Pharmacy
+                    ">
+                    Pharmacy
+                    </option>
+                    <option value="Graphic Design
+                    ">
+                    Graphic Design
+                    </option>
+                    <option value="Film Studies
+                    ">
+                    Film Studies
+                    </option>
+
+
+                </select>
+                <label for="comments">Additional Comments:</label>
+<textarea id="comments" name="comments"></textarea>
+                <button type="submit" >
+                    Submit
+                </button>
+            </form>
+            <div id="submission" class="submissionConfirmation">
+                <div class="modal-content">
+                  <span class="s-close">&times;</span>
+                  <p>Submitted <i class="fas fa-check"></i></p>
+                </div>
+              </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright">
+        <p>Copyright © 2024 Nexus University</br>
+            All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to display the modal
+function displayModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "block";
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// Function to close the modal
+span.onclick = function() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+function displaySubmit() {
+  var modal = document.getElementById("submission");
+  modal.style.display = "block";
+}
+
+var span = document.getElementsByClassName("s-close")[0];
+
+  // Function to close the modal
+  span.onclick = function() {
+  var modal1 = document.getElementById("submission");
+  modal1.style.display = "none";
+}
+
+// var span = document.getElementsByClassName("s-close")[0];
+
+// // Function to close the modal
+// span.onclick = function() {
+//   var modal = document.getElementById("submission");
+//   modal.style.display = "none";
+// }
+// Function to check form fields before submission
+function validateForm() {
+  // Check student name fields
+  var firstName = document.getElementById("first").value.trim();
+  var middleName = document.getElementById("middle").value.trim();
+  var lastName = document.getElementById("last").value.trim();
+
+  // Check date of birth
+  var dob = document.getElementById("dob").value.trim();
+
+  // Check gender
+  var gender = document.getElementById("gender").value;
+
+  // Check email
+  var email = document.getElementById("email").value.trim();
+
+  // Check contact number
+  var mobile = document.getElementById("mobile").value.trim();
+
+  // Check state and city
+  var state = document.getElementById("sts").value;
+  var city = document.getElementById("state").value;
+
+  // Check course
+  var course = document.getElementById("course").value;
+
+  // Additional comments are optional, so no need to check
+  
+  // If all fields are filled, display "submitted" and return false to prevent form submission
+  if (firstName !== '' && middleName !== '' && lastName !== '' &&
+      dob !== '' && gender !== '' && email !== '' && mobile !== '' &&
+      state !== '' && city !== '' && course !== '') {
+    displaySubmit();
+    return false; // Prevent form submission
+  } else {
+    displayModal(); // Display modal if any field is empty
+    return false; // Prevent form submission
+  }
+  
+}
+
+    </script>
+</body>
+</html>
